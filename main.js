@@ -17,7 +17,7 @@ for (const link of links) {
   })
 }
 
-/* Chance header of page when page move down */
+/* Change header of page when page move down */
 const header = document.querySelector('#header')
 const navHeight = header.offsetHeight
 
@@ -28,3 +28,31 @@ window.addEventListener('scroll', function() {
     header.classList.remove('scroll')
   }
 })
+
+/* Testimonials carousel slider swiper */
+const swiper = new Swiper ('.swiper-container', {
+  slidesPerView: 1,
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  mousewheel:true,
+  keyboard: true
+});
+
+/* ScrollReveal: Show elements when scroll in page */
+const scrollReveal = ScrollReveal({
+  origin: 'top',
+  distance: '30px',
+  duration: 700,
+  reset: true
+})
+
+scrollReveal.reveal(
+  ` #home .image, #home .text,
+    #about .image, #about .text,
+    #services header, #services .card,
+    #testimonials header, #testimonials .tesmtimonials,
+    #contact .text, #contact .links
+  `,
+  { interval: 100}
+  )
